@@ -7,9 +7,16 @@ public class Principal {
 		Guanabara guanabara = new Guanabara();
 		guanabara.adicionarOnibus("075");
 		guanabara.adicionarTopic("06");
+		
+		
+		Passageiro p = new Passageiro();
+		p.comprarVaga(guanabara.transporte.get(1));
+		p.comprarVaga(guanabara.transporte.get(0));
+
 		guanabara.listarTransporte();
-
-
 	}
 	
 }
+	
+
+

@@ -3,10 +3,14 @@ package AppBus;
 public class Topic extends Transporte {
 	
 public Topic(String id) {
-		super(id);
-		
+		super(id);		
 		this.assentos = 30;
+		vagas = this.assentos;
 				
 	}
 
+
 }
+
+
+

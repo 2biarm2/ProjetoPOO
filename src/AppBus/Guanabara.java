@@ -28,14 +28,15 @@ public class Guanabara {
 	public void listarTransporte(){
 		for(int i=0 ; i<transporte.size() ; i++){
 			if(transporte.get(i) instanceof Onibus){
-				System.out.println("Onibus: " +transporte.get(i).getId() + " " + "Vagas: " +transporte.get(i).getAssentos());
+				System.out.println("Onibus: " +transporte.get(i).getId() + " " + "Assentos: " +transporte.get(i).getAssentos() + " " + "Vagas: " +transporte.get(i).getVagas());
 				
 			}
 			
 			else{
-				System.out.println("Topic: " +transporte.get(i).getId() + " " + "Vagas: " +transporte.get(i).getAssentos());
+				System.out.println("Topic: " +transporte.get(i).getId() + " " + "Assentos: " +transporte.get(i).getAssentos() + " " + "Vagas: " +transporte.get(i).getVagas());
 				
 			}
 		}
 	}
 }
+

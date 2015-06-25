@@ -10,6 +10,14 @@ public class Transporte {
    
     
     
+	public int getVagas() {
+		return vagas;
+	}
+
+	public void setVagas(int vagas) {
+		this.vagas = vagas;
+	}
+
 	public String getId() {
 		return id;
 	}
@@ -33,7 +41,4 @@ public class Transporte {
 	}
 	
 
-	
 	}
-
-
