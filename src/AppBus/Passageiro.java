@@ -35,7 +35,7 @@ public void comprarVaga(Topic t){
 		System.out.println("Topic lotada!");	
 	}
 	else{
-		System.out.println("Compra efetuada!");
+		System.out.println("Compra efetuada para Topic!");
 		t.vagas--;
 	}
 }
@@ -46,7 +46,7 @@ public void comprarVaga(Onibus o){
 		System.out.println("Onibus lotado!");	
 	}
 	else{
-		System.out.println("Compra efetuada!");
+		System.out.println("Compra efetuada para Onibus!");
 		o.vagas--;
 	}
 }

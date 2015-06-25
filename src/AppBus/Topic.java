@@ -1,6 +1,6 @@
 package AppBus;
 
-public class Topic extends Transporte {
+public class Topic extends Transporte{
 	
 public Topic(String id) {
 		super(id);		

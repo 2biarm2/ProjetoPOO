@@ -8,5 +8,4 @@ public Onibus(String id) {
 		vagas = this.assentos;
 				
 	}
-
 }
