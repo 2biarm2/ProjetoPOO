@@ -19,6 +19,9 @@ import javax.swing.table.DefaultTableModel;
 public class JanelaGUI extends JInternalFrame {
 	private JTextField textField;
 	private JTable table;
+	
+	Guanabara guanabara = new Guanabara();
+	Passageiro p = new Passageiro();
 
 	/**
 	 * Launch the application.
@@ -86,10 +89,21 @@ public class JanelaGUI extends JInternalFrame {
 		scrollPane.setViewportView(table);
 		
 		JButton Onibus = new JButton("Passagem de Onibus");
+		Onibus.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent arg0) {
+				p.comprarVaga(guanabara.transporte.get(0));
+			}
+		});
 		
 		JLabel lblComprarPassagem = new JLabel("Comprar Passagem:");
 		
 		JButton Topic = new JButton("Passagem de Topic");
+		Topic.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				p.comprarVaga(guanabara.transporte.get(1));
+			}
+		});
 		GroupLayout gl_panel = new GroupLayout(panel);
 		gl_panel.setHorizontalGroup(
 			gl_panel.createParallelGroup(Alignment.LEADING)
@@ -142,14 +156,29 @@ public class JanelaGUI extends JInternalFrame {
 		PainelRegistro.setLayout(gl_PainelRegistro);
 		
 		JButton NovoOnibus = new JButton("Adicionar Onibus");
+		NovoOnibus.addActionListener(new ActionListener() {
+			
+			public void actionPerformed(ActionEvent arg0) {
+				guanabara.adicionarOnibus("075");
+			}
+		});
 		
 		JButton NovaTopic = new JButton("Adicionar Topic");
 		NovaTopic.addActionListener(new ActionListener() {
+			
 			public void actionPerformed(ActionEvent arg0) {
+				guanabara.adicionarTopic("06");
 			}
 		});
 		
 		JButton ListarTransporte = new JButton("Carregar Lista");
+		ListarTransporte.addActionListener(new ActionListener() {	
+			
+			
+			public void actionPerformed(ActionEvent arg0) {
+				guanabara.listarTransporte();
+			}
+		});
 		GroupLayout gl_PainelBotao = new GroupLayout(PainelBotao);
 		gl_PainelBotao.setHorizontalGroup(
 			gl_PainelBotao.createParallelGroup(Alignment.LEADING)
