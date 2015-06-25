@@ -22,6 +22,7 @@ public class JanelaGUI extends JInternalFrame {
 	
 	Guanabara guanabara = new Guanabara();
 	Passageiro p = new Passageiro();
+	private JTextField textField_1;
 
 	/**
 	 * Launch the application.
@@ -52,31 +53,50 @@ public class JanelaGUI extends JInternalFrame {
 		JScrollPane scrollPane = new JScrollPane();
 		
 		JPanel panel = new JPanel();
+		
+		JPanel panel_1 = new JPanel();
 		GroupLayout groupLayout = new GroupLayout(getContentPane());
 		groupLayout.setHorizontalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
 					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
-						.addComponent(PainelBotao, GroupLayout.PREFERRED_SIZE, 432, GroupLayout.PREFERRED_SIZE)
-						.addComponent(PainelRegistro, GroupLayout.PREFERRED_SIZE, 433, GroupLayout.PREFERRED_SIZE)
 						.addComponent(panel, GroupLayout.PREFERRED_SIZE, 433, GroupLayout.PREFERRED_SIZE)
 						.addGroup(groupLayout.createSequentialGroup()
 							.addContainerGap()
-							.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 411, GroupLayout.PREFERRED_SIZE)))
+							.addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 411, GroupLayout.PREFERRED_SIZE))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGroup(groupLayout.createParallelGroup(Alignment.TRAILING, false)
+								.addComponent(PainelRegistro, Alignment.LEADING, 0, 0, Short.MAX_VALUE)
+								.addComponent(PainelBotao, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE))
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 115, GroupLayout.PREFERRED_SIZE)))
 					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		groupLayout.setVerticalGroup(
 			groupLayout.createParallelGroup(Alignment.LEADING)
 				.addGroup(groupLayout.createSequentialGroup()
-					.addComponent(PainelBotao, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED)
-					.addComponent(PainelRegistro, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addComponent(PainelBotao, GroupLayout.PREFERRED_SIZE, 50, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(PainelRegistro, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(panel_1, GroupLayout.PREFERRED_SIZE, 59, GroupLayout.PREFERRED_SIZE)))
 					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(panel, GroupLayout.PREFERRED_SIZE, 58, GroupLayout.PREFERRED_SIZE)
 					.addGap(18)
 					.addComponent(scrollPane, GroupLayout.DEFAULT_SIZE, 91, Short.MAX_VALUE)
 					.addContainerGap())
 		);
+		
+		JButton btnNewButton = new JButton("Carregar Lista");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				guanabara.listarTransporte();
+			}
+		});
+		panel_1.add(btnNewButton);
 		
 		table = new JTable();
 		table.setModel(new DefaultTableModel(
@@ -130,30 +150,10 @@ public class JanelaGUI extends JInternalFrame {
 		);
 		panel.setLayout(gl_panel);
 		
-		JLabel lblId = new JLabel("ID:");
+		JLabel lblId = new JLabel("ID onibus:");
 		
 		textField = new JTextField();
 		textField.setColumns(10);
-		GroupLayout gl_PainelRegistro = new GroupLayout(PainelRegistro);
-		gl_PainelRegistro.setHorizontalGroup(
-			gl_PainelRegistro.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_PainelRegistro.createSequentialGroup()
-					.addGap(18)
-					.addComponent(lblId)
-					.addPreferredGap(ComponentPlacement.UNRELATED)
-					.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(304, Short.MAX_VALUE))
-		);
-		gl_PainelRegistro.setVerticalGroup(
-			gl_PainelRegistro.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_PainelRegistro.createSequentialGroup()
-					.addContainerGap()
-					.addGroup(gl_PainelRegistro.createParallelGroup(Alignment.BASELINE)
-						.addComponent(lblId)
-						.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-					.addContainerGap(86, Short.MAX_VALUE))
-		);
-		PainelRegistro.setLayout(gl_PainelRegistro);
 		
 		JButton NovoOnibus = new JButton("Adicionar Onibus");
 		NovoOnibus.addActionListener(new ActionListener() {
@@ -162,6 +162,29 @@ public class JanelaGUI extends JInternalFrame {
 				guanabara.adicionarOnibus("075");
 			}
 		});
+		GroupLayout gl_PainelRegistro = new GroupLayout(PainelRegistro);
+		gl_PainelRegistro.setHorizontalGroup(
+			gl_PainelRegistro.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_PainelRegistro.createSequentialGroup()
+					.addGap(18)
+					.addComponent(lblId)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(18)
+					.addComponent(NovoOnibus)
+					.addContainerGap(139, Short.MAX_VALUE))
+		);
+		gl_PainelRegistro.setVerticalGroup(
+			gl_PainelRegistro.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_PainelRegistro.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(gl_PainelRegistro.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblId)
+						.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(NovoOnibus))
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+		);
+		PainelRegistro.setLayout(gl_PainelRegistro);
 		
 		JButton NovaTopic = new JButton("Adicionar Topic");
 		NovaTopic.addActionListener(new ActionListener() {
@@ -171,35 +194,31 @@ public class JanelaGUI extends JInternalFrame {
 			}
 		});
 		
-		JButton ListarTransporte = new JButton("Carregar Lista");
-		ListarTransporte.addActionListener(new ActionListener() {	
-			
-			
-			public void actionPerformed(ActionEvent arg0) {
-				guanabara.listarTransporte();
-			}
-		});
+		JLabel lblIdTopic = new JLabel("ID topic:");
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
 		GroupLayout gl_PainelBotao = new GroupLayout(PainelBotao);
 		gl_PainelBotao.setHorizontalGroup(
 			gl_PainelBotao.createParallelGroup(Alignment.LEADING)
 				.addGroup(gl_PainelBotao.createSequentialGroup()
-					.addContainerGap()
-					.addComponent(NovoOnibus)
-					.addGap(45)
+					.addGap(18)
+					.addComponent(lblIdTopic)
+					.addGap(18)
+					.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addGap(18)
 					.addComponent(NovaTopic)
-					.addPreferredGap(ComponentPlacement.RELATED, 48, Short.MAX_VALUE)
-					.addComponent(ListarTransporte)
-					.addContainerGap())
+					.addContainerGap(146, Short.MAX_VALUE))
 		);
 		gl_PainelBotao.setVerticalGroup(
 			gl_PainelBotao.createParallelGroup(Alignment.LEADING)
-				.addGroup(gl_PainelBotao.createSequentialGroup()
-					.addContainerGap()
+				.addGroup(Alignment.TRAILING, gl_PainelBotao.createSequentialGroup()
+					.addContainerGap(25, Short.MAX_VALUE)
 					.addGroup(gl_PainelBotao.createParallelGroup(Alignment.BASELINE)
-						.addComponent(NovoOnibus)
-						.addComponent(ListarTransporte)
+						.addComponent(lblIdTopic)
+						.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(NovaTopic))
-					.addContainerGap(52, Short.MAX_VALUE))
+					.addContainerGap())
 		);
 		PainelBotao.setLayout(gl_PainelBotao);
 		getContentPane().setLayout(groupLayout);
