@@ -134,7 +134,7 @@ public class JanelaGUI extends JFrame {
 		NovoOnibus.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent arg0) {
-				guanabara.adicionarOnibus("075");
+				guanabara.adicionarOnibus(textField.getText());
 			}
 		});
 		GroupLayout gl_PainelRegistro = new GroupLayout(PainelRegistro);
@@ -165,7 +165,7 @@ public class JanelaGUI extends JFrame {
 		NovaTopic.addActionListener(new ActionListener() {
 			
 			public void actionPerformed(ActionEvent arg0) {
-				guanabara.adicionarTopic("06");
+				guanabara.adicionarTopic(textField_1.getText());
 			}
 		});
 		

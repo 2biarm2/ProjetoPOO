@@ -1,6 +1,7 @@
 package AppBus;
 import java.util.ArrayList;
 
+
 public class Guanabara {
 	
 	ArrayList<Transporte> transporte;
@@ -39,4 +40,3 @@ public class Guanabara {
 		}
 	}
 }
-
